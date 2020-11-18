@@ -1,0 +1,13 @@
+<div class="card-columns md-5 text-center">
+    <div *ngFor="let item of items; let i=index" class="card" style="width: 18rem;">
+        <img [src]="item.miniatura" alt="Card image cap" (click)="mostarImagen( item.imagen )" style="cursor: hand;cursor: pointer;">
+        <div class="card-body">
+            <h5 class="card-title"> {{ item.descripcion }}</h5>
+            <h5 class="card-title"> Cantidad en stock: {{ item.cantidadDisponible }}</h5>
+            <h5 class="card-title"> ${{ item.precio | number }}</h5>
+
+            <a *ngIf="(item.cantidadDisponible == 0)" href="#" class="btn btn-danger disabled">PRODUCTO NO DISPONIBLE </a>
+            <a *ngIf="(item.cantidadDisponible >= 1)" (click)="verPedido( item )" class="btn btn-primary"> SOLICITAR PEDIDO </a>
+        </div>
+    </div>
+</div>
